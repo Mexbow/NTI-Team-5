@@ -11,7 +11,6 @@ if uploaded_image is not None:
 
     if st.button("Send to FastAPI"):
         with st.spinner("Sending..."):
-            # Send the file to FastAPI
             files = {"file": (uploaded_image.name, uploaded_image, uploaded_image.type)}
 
             response = requests.post("http://127.0.0.1:8000/upload-image", files=files)

@@ -2,6 +2,7 @@ from fastapi import FastAPI, File, UploadFile
 from fastapi.responses import JSONResponse
 from PIL import Image
 import io
+import uvicorn
 
 app = FastAPI()
 
@@ -19,3 +20,5 @@ async def upload_image(file: UploadFile = File(...)):
         "height": height,
         "message": "Image received successfully!"
     })
+
+uvicorn.run(app, host='0.0.0.0', port=8000)
